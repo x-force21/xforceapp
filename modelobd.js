@@ -1,6 +1,5 @@
 // NEW BEGINS
 //usuarios
-
 db.users.insertMany([
         {
                 email:"psoto@udea.edu.co",
@@ -11,17 +10,15 @@ db.users.insertMany([
                 apellido:"Soto",
                 rol:"estudiante", //Admin, estudiante, lider
                 estado: "autorizado", //autorizado,pendiente,no autorizado
-                //codigoProyecto,rolProyecto,fechaIngreso,fechaEgreso    Preguntar al profesor
-                //proyectos:[("ING0003",ISODate("2021-10-15"),ISODate("")),("ADM1020",ISODate(2021-10-15),ISODate(""))],
                 inscripciones:[
-                        {codigoProyecto:"ING0003",inscripcion:"aceptada",fechaIngreso:ISODate("2020-12-03"),fechaEgreso:("")},
+                        {codigoProyecto:"ING0001",inscripcion:"aceptada",fechaIngreso:ISODate("2020-12-03"),fechaEgreso:("")},
                         {codigoProyecto:"ACA47",inscripcion:"rechazada",fechaIngreso:ISODate(""),fechaEgreso:("")}
                 ]
         }])
 
 db.proyectos.insertMany([
         {
-                codigoProyecto:"ING0003",
+                codigoProyecto:"ING0001",
                 nombre:"Semillero de la vida eterna",
                 objetivos:{
                         generales:"Activar los ciclos de regeneracion celular a demanda",
@@ -39,11 +36,13 @@ db.proyectos.insertMany([
                 fFinal:ISODate("2021-03-10"),
                 estadoProyecto:"activo", //activo inactivo
                 fase:"iniciado", //iniciado, en desarrollo, finalizado
-                avances:{
+                avances:[
+                {
                         fecha:ISODate(""),
                         descripcion:"",
                         LeadObserv:"",
                 }
+                ],
         }
 ])
 
