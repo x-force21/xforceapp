@@ -1,0 +1,30 @@
+{
+  "name": "xforceapp",
+  "version": "1.0.0",
+  "description": "Repositorio app x-force",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/x-force21/xforceapp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/x-force21/xforceapp/issues"
+  },
+  "homepage": "https://github.com/x-force21/xforceapp#readme",
+  "dependencies": {
+    "apollo-server-express": "^3.5.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "mongoose": "^6.0.13",
+    "nodemon": "^2.0.15"
+  }
+}
