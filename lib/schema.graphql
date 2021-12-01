@@ -107,11 +107,25 @@ input AdvanceInput {
     LeadObserv: String
 }
 
+input EditAdvanceInput {
+    advanceCode: String!
+    codigoProyecto: ID!
+    fecha: Int!
+    descripcion: String!
+    LeadObserv: String
+}
+
 type Query {
     "Devuelve todos los usuarios"
     getUsers: [User]
     "Devuelve un usuario"
     getUser (id:ID!): User
+    "Devuelve todos los proyectos"
+    getProjects: [Project]
+    "Devuelve un usuario"
+    getProject (id:ID!): Project
+    "Devuelve un avance"
+    getProject (id:ID!): Project
 }
 
 enum Rol {
