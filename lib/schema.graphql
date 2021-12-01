@@ -112,6 +112,10 @@ type Query {
     getUsers: [User]
     "Devuelve un usuario"
     getUser (id:ID!): User
+    "Devuelve el listado de proyectos registrados"
+    getProjects: [Project]
+    "Devuelve el proyecto indicado"
+    getProject(projectCode: String, projectName: String): Project
 }
 
 enum Rol {
@@ -132,9 +136,9 @@ enum proyectoEstado{
 }
 
 enum Fase {
-    Iniciado
-    En desarrollo
-    Terminado
+    Iniciado,
+    En desarrollo,
+    Terminado,
 }
 
 enum inscriptionStatus {
