@@ -1,0 +1,182 @@
+type User {
+    _id: ID 
+    nombre: String
+    apellido: String
+    email: String
+    contrasena: String
+    documentType: typeDocument
+    documentId: String
+    rol: Rol
+    estado: Estado
+    inscriptionUser: [Inscriptions]
+    }
+
+type Project {
+    _id: ID
+    codigoProyecto: String
+    nombre: String
+    objGenerales: String
+    objEspecificos: String
+    presupuesto: Int
+    fInicio: String
+    fFinal: String
+    estadoProyecto: proyectoEstado
+    fase: Fase
+    advanceProject: [Advance]
+    }
+
+type Advance {
+    _id: ID
+    fecha: String
+    descripcion: String
+    LeadObserv: String
+}
+
+type Inscriptions {
+    _id : ID
+    codigoProyecto: String
+    inscripcionStatus: String
+    fechaIngreso: String
+    fechaEgreso: String
+    estadoInscription: inscriptionStatus
+}
+
+input UserInput {
+    nombre: String!
+    apellido: String!
+    email: String!
+    contrasena: String!
+    documentType: String!
+    documentId: String!
+    rol: Rol
+    estado: Estado
+}
+
+input UserStateInput{
+    estado: Estado
+}
+
+input UserEditInput {
+    nombre: String
+    apellido: String
+    email: String
+    contrasena: String
+    documentId: String
+}
+
+input ProjectInput {
+    codigoProyecto: String!
+    nombre: String!
+    objGenerales: String!
+    objEspecificos: String!
+    presupuesto: Int!
+    fInicio: String!
+    fFinal: String!
+    estadoProyecto: proyectoEstado
+    fase: Fase
+    }
+
+input EditProjectInput {
+    nombre: String
+    objGenerales: String
+    objEspecificos: String
+    presupuesto: Int
+    fInicio: String
+    fFinal: String
+    estadoProyecto: proyectoEstado
+    fase: Fase
+    }
+    
+input InscriptionsInput {
+    UserID: String!
+    codigoProyecto: String!
+    estadoInscription: inscriptionStatus
+    fechaIngreso: Int
+    fechaEgreso: Int
+}
+
+input InscriptionStateInput{
+    estadoInscription: inscriptionStatus
+}
+
+input AdvanceInput {
+    advanceCode: String!
+    codigoProyecto: ID!
+    fecha: Int!
+    descripcion: String!
+    LeadObserv: String
+}
+
+type Query {
+    "Devuelve todos los usuarios"
+    getUsers: [User]
+    "Devuelve un usuario"
+    getUser (id:ID!): User
+}
+
+enum Rol {
+    Administrador
+    Estudiantes
+    Lider
+}
+
+enum Estado {
+    Pendiente
+    Autorizado
+    No autorizado
+}
+
+enum proyectoEstado{
+    Activo
+    Inactivo
+}
+
+enum Fase {
+    Iniciado
+    En desarrollo
+    Terminado
+}
+
+enum inscriptionStatus {
+    Aceptada
+    Rechazada
+}
+
+enum typeDocument {
+    cedula ciudadania
+    pasaporte
+    tarjeta de identidad
+}
+
+type Mutation {
+    
+    "Registra un usuario"
+    registerUser (input: UserInput): User
+    
+    "Autoriza o No Autoriza a un usuario"
+    editUserState (_id: ID!, input:UserStateInput): User
+    
+    "Edita la informacion personal de un usuario"
+    editUserInfo (_id: ID!, input:UserEditInput): User
+
+    "Registra un proyecto"
+    registerProject (input: ProjectInput): Project
+
+    "Actualiza el proyecto"
+    editProject (_id: ID!, input:EditProjectInput): Project
+
+    "Registra una inscripcion"
+    inscriptionProject (input: InscriptionsInput): Inscriptions
+
+    "Activo o No activa la inscripcion"
+    editInscriptionState (_id: ID!, input:InscriptionStateInput): Inscriptions
+
+    "Registra un avance"
+    addAdvance (input: AdvanceInput): Advance
+
+    "Adicionar un avance al proyecto"
+    addAdvancetoProject(projectID: ID!, advanceID: ID!): Project
+
+    "Adicionar un avance al usuario"
+    addInscriptiontoUser(userID: ID!, inscriptionID: ID!): User
+}
