@@ -33,7 +33,7 @@ type Advance {
 }
 
 type Inscriptions {
-    _id : ID
+    _id: ID
     codigoProyecto: String
     inscripcionStatus: String
     fechaIngreso: String
@@ -86,7 +86,7 @@ input EditProjectInput {
     estadoProyecto: proyectoEstado
     fase: String
     }
-    
+
 input InscriptionsInput {
     UserID: String!
     codigoProyecto: String!
@@ -100,6 +100,14 @@ input InscriptionStateInput{
 }
 
 input AdvanceInput {
+    advanceCode: String!
+    codigoProyecto: ID!
+    fecha: Int!
+    descripcion: String!
+    LeadObserv: String
+}
+
+input EditAdvanceInput {
     advanceCode: String!
     codigoProyecto: ID!
     fecha: Int!
@@ -136,9 +144,9 @@ enum proyectoEstado{
 }
 
 enum Fase {
-    Iniciado,
-    En desarrollo,
-    Terminado,
+    Iniciado
+    Desarrollo
+    Terminado
 }
 
 enum inscriptionStatus {
@@ -147,9 +155,9 @@ enum inscriptionStatus {
 }
 
 enum typeDocument {
-    cedula ciudadania
+    CC
     pasaporte
-    tarjeta de identidad
+    TI
 }
 
 type Mutation {

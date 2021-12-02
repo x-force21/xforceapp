@@ -1,4 +1,3 @@
 # xforcegraph
-Mafes repository!!!!
-Only for testing porpuses. 
-If you have any questions, please let me know!!!
+Last update Nov 30th
+If you have questions, please let me know here!
