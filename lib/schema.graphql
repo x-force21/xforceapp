@@ -23,6 +23,8 @@ type Project {
     estadoProyecto: proyectoEstado
     fase: Fase
     advanceProject: [Advance]
+    documentoLider: String!
+    nombreLider: String!
     }
 
 type Advance {
@@ -74,6 +76,8 @@ input ProjectInput {
     fFinal: String!
     estadoProyecto: String
     fase: String
+    documentoLider: String!
+    nombreLider: String!
     }
 
 input EditProjectInput {
