@@ -33,7 +33,7 @@ type Advance {
 }
 
 type Inscriptions {
-    _id : ID
+    _id: ID
     codigoProyecto: String
     inscripcionStatus: String
     fechaIngreso: String
@@ -86,7 +86,7 @@ input EditProjectInput {
     estadoProyecto: proyectoEstado
     fase: Fase
     }
-    
+
 input InscriptionsInput {
     UserID: String!
     codigoProyecto: String!
@@ -124,8 +124,6 @@ type Query {
     getProjects: [Project]
     "Devuelve un usuario"
     getProject (id:ID!): Project
-    "Devuelve un avance"
-    getProject (id:ID!): Project
 }
 
 enum Rol {
@@ -147,7 +145,7 @@ enum proyectoEstado{
 
 enum Fase {
     Iniciado
-    En desarrollo
+    Desarrollo
     Terminado
 }
 
@@ -157,9 +155,9 @@ enum inscriptionStatus {
 }
 
 enum typeDocument {
-    cedula ciudadania
+    CC
     pasaporte
-    tarjeta de identidad
+    TI
 }
 
 type Mutation {
