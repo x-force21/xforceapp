@@ -72,8 +72,8 @@ input ProjectInput {
     presupuesto: Int!
     fInicio: String!
     fFinal: String!
-    estadoProyecto: proyectoEstado
-    fase: Fase
+    estadoProyecto: String
+    fase: String
     }
 
 input EditProjectInput {
@@ -84,7 +84,7 @@ input EditProjectInput {
     fInicio: String
     fFinal: String
     estadoProyecto: proyectoEstado
-    fase: Fase
+    fase: String
     }
     
 input InscriptionsInput {
