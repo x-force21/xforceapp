@@ -4,11 +4,11 @@ type User {
     apellido: String
     email: String
     contrasena: String
-    documentType: typeDocument
+    documentType: String
     documentId: String
-    rol: Rol
-    estado: Estado
-    inscriptionUser: [Inscriptions]
+    rol: String
+    estado: String
+    inscriptionUser: [Inscriptions] 
     }
 
 type Project {
@@ -20,11 +20,11 @@ type Project {
     presupuesto: Int
     fInicio: String
     fFinal: String
-    estadoProyecto: proyectoEstado
-    fase: Fase
-    advanceProject: [Advance]
-    documentoLider: String!
-    nombreLider: String!
+    estadoProyecto: String
+    fase: String
+    advanceProject: [Advance] 
+    documentoLider: String
+    nombreLider: String
     }
 
 type Advance {
@@ -36,11 +36,13 @@ type Advance {
 
 type Inscriptions {
     _id: ID
+    UserID: ID
+    codigoInscripcion: String
     codigoProyecto: String
     inscripcionStatus: String
     fechaIngreso: String
     fechaEgreso: String
-    estadoInscription: inscriptionStatus
+    estadoInscription: String
 }
 
 input UserInput {
@@ -50,12 +52,13 @@ input UserInput {
     contrasena: String!
     documentType: String!
     documentId: String!
-    rol: Rol
-    estado: Estado
+    rol: String!
+    estado: String
+    inscriptionUser: String
 }
 
 input UserStateInput{
-    estado: Estado
+    estado: String
 }
 
 input UserEditInput {
@@ -64,6 +67,7 @@ input UserEditInput {
     email: String
     contrasena: String
     documentId: String
+    inscriptionUser: String
 }
 
 input ProjectInput {
@@ -74,33 +78,36 @@ input ProjectInput {
     presupuesto: Int!
     fInicio: String!
     fFinal: String!
-    estadoProyecto: proyectoEstado
-    fase: Fase
+    estadoProyecto: String
+    fase: String
     documentoLider: String!
     nombreLider: String!
-    }
+}
 
 input EditProjectInput {
     nombre: String
     objGenerales: String
     objEspecificos: String
     presupuesto: Int
-    fInicio: String
+    fInicio: String 
     fFinal: String
-    estadoProyecto: proyectoEstado
-    fase: Fase
+    estadoProyecto: String
+    fase: String
+    documentoLider: String
+    nombreLider: String
     }
-
+    
 input InscriptionsInput {
-    UserID: String!
+    UserID: ID
     codigoProyecto: String!
-    estadoInscription: inscriptionStatus
+    estadoInscription: String
     fechaIngreso: Int
     fechaEgreso: Int
 }
 
 input InscriptionStateInput{
-    estadoInscription: inscriptionStatus
+    estadoInscription: String!
+    fechaIngreso: Int!
 }
 
 input AdvanceInput {
@@ -112,10 +119,10 @@ input AdvanceInput {
 }
 
 input EditAdvanceInput {
-    advanceCode: String!
-    codigoProyecto: ID!
-    fecha: Int!
-    descripcion: String!
+    advanceCode: String
+    codigoProyecto: ID
+    fecha: Int
+    descripcion: String
     LeadObserv: String
 }
 
@@ -124,44 +131,25 @@ type Query {
     getUsers: [User]
     "Devuelve un usuario"
     getUser (id:ID!): User
-    "Devuelve todos los proyectos"
+    "Devuelve el listado de proyectos registrados"
     getProjects: [Project]
-    "Devuelve un usuario"
+    "Devuelve el proyecto indicado"
+    getUnicProject(projectCode: String, projectName: String): Project
+    "Devuelve un proyecto"
     getProject (id:ID!): Project
-}
-
-enum Rol {
-    Administrador
-    Estudiantes
-    Lider
-}
-
-enum Estado {
-    Pendiente
-    Autorizado
-    No autorizado
-}
-
-enum proyectoEstado{
-    Activo
-    Inactivo
-}
-
-enum Fase {
-    Iniciado
-    Desarrollo
-    Terminado
-}
-
-enum inscriptionStatus {
-    Aceptada
-    Rechazada
-}
-
-enum typeDocument {
-    CC
-    pasaporte
-    TI
+    "Devuelve listado de proyectos por documento del lider"
+    getProjectsByFilter(leaderDocument:String ):[Project]
+    "Devuelve los avances"
+    getAvances (id:ID!): [Advance]
+    "Devuelve un avance"
+    getAvance (id:ID!): Advance 
+    "Devuelve los avances del usuario"
+    getAdvanceUser (UserID: ID): Advance 
+    "Devuelve todos las inscripciones"
+    getInscriptions: [Inscriptions]
+    "Devuelve una inscripcion"
+    getInscription (id:ID!): Inscriptions
+     
 }
 
 type Mutation {
@@ -173,7 +161,7 @@ type Mutation {
     editUserState (_id: ID!, input:UserStateInput): User
     
     "Edita la informacion personal de un usuario"
-    editUserInfo (_id: ID!, input:UserEditInput): User
+    editUserInfo (_id: ID!, input: UserEditInput): User
 
     "Registra un proyecto"
     registerProject (input: ProjectInput): Project
@@ -193,6 +181,9 @@ type Mutation {
     "Adicionar un avance al proyecto"
     addAdvancetoProject(projectID: ID!, advanceID: ID!): Project
 
-    "Adicionar un avance al usuario"
+    "Adicionar una inscripcion al usuario"
     addInscriptiontoUser(userID: ID!, inscriptionID: ID!): User
+
+    "Actualiza el avance"
+    editAvance (_id: ID!, input:EditAdvanceInput): Advance
 }
