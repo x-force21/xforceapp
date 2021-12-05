@@ -137,9 +137,9 @@ enum Rol {
 }
 
 enum Estado {
-    Pendiente
-    Autorizado
-    No autorizado
+    Pendiente,
+    Autorizado,
+    No_Autorizado
 }
 
 enum proyectoEstado{
@@ -162,6 +162,7 @@ enum typeDocument {
     CC
     pasaporte
     TI
+    CID
 }
 
 type Mutation {
