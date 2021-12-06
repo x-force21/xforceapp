@@ -74,8 +74,8 @@ input ProjectInput {
     presupuesto: Int!
     fInicio: String!
     fFinal: String!
-    estadoProyecto: proyectoEstado
-    fase: Fase
+    estadoProyecto: String
+    fase: String
     documentoLider: String!
     nombreLider: String!
     }
@@ -88,7 +88,7 @@ input EditProjectInput {
     fInicio: String
     fFinal: String
     estadoProyecto: proyectoEstado
-    fase: Fase
+    fase: String
     }
 
 input InscriptionsInput {
@@ -124,10 +124,12 @@ type Query {
     getUsers: [User]
     "Devuelve un usuario"
     getUser (id:ID!): User
-    "Devuelve todos los proyectos"
+    "Devuelve el listado de proyectos registrados"
     getProjects: [Project]
-    "Devuelve un usuario"
-    getProject (id:ID!): Project
+    "Devuelve el proyecto indicado"
+    getProject(projectCode: String, projectName: String): Project
+    "Devuelve listado de proyectos por documento del lider"
+    getProjectsByFilter(leaderDocument:String ):[Project]
 }
 
 enum Rol {
