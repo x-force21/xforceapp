@@ -50,7 +50,7 @@ input UserInput {
     apellido: String!
     email: String!
     contrasena: String!
-    documentType: String!
+    documentType: String
     documentId: String!
     rol: String!
     estado: String
@@ -59,9 +59,11 @@ input UserInput {
 
 input UserStateInput{
     estado: String
+    rol: String
 }
 
 input UserEditInput {
+    _id: ID
     nombre: String
     apellido: String
     email: String
