@@ -20,7 +20,7 @@ type Project {
     presupuesto: Int
     fInicio: String
     fFinal: String
-    estadoProyecto: proyectoEstado
+    estadoProyecto: String
     fase: Fase
     advanceProject: [Advance]
     documentoLider: String!
@@ -87,7 +87,7 @@ input EditProjectInput {
     presupuesto: Int
     fInicio: String
     fFinal: String
-    estadoProyecto: proyectoEstado
+    estadoProyecto: String
     fase: String
     }
 
