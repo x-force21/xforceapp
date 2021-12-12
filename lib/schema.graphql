@@ -93,10 +93,8 @@ input EditProjectInput {
     presupuesto: Int
     fInicio: String 
     fFinal: String
-    estadoProyecto: String
+    estadoProyecto: proyectoEstado
     fase: String
-    documentoLider: String
-    nombreLider: String
     }
     
 input InscriptionsInput {
@@ -151,8 +149,6 @@ type Query {
     getInscriptions: [Inscriptions]
     "Devuelve una inscripcion"
     getInscription (id:ID!): Inscriptions
-     
-}
 
 type Mutation {
     
