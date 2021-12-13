@@ -32,6 +32,7 @@ type Advance {
     fecha: String
     descripcion: String
     LeadObserv: String
+    estadoProyecto: String
 }
 
 type Inscriptions {
@@ -93,7 +94,7 @@ input EditProjectInput {
     presupuesto: Int
     fInicio: String 
     fFinal: String
-    estadoProyecto: proyectoEstado
+    estadoProyecto: String
     fase: String
     }
     
@@ -149,6 +150,7 @@ type Query {
     getInscriptions: [Inscriptions]
     "Devuelve una inscripcion"
     getInscription (id:ID!): Inscriptions
+}
 
 type Mutation {
     
