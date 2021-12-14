@@ -149,6 +149,7 @@ type Query {
     getInscriptions: [Inscriptions]
     "Devuelve una inscripcion"
     getInscription (id:ID!): Inscriptions
+}
 
 type Mutation {
     
