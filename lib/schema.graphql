@@ -100,8 +100,8 @@ input EditProjectInput {
     
 input InscriptionsInput {
     UserID: ID
-    codigoProyecto: String!
-    estadoInscription: String
+    codigoProyecto: String
+    inscripcionStatus: String
     fechaIngreso: Int
     fechaEgreso: Int
 }
