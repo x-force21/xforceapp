@@ -10,7 +10,7 @@ const resolvers = require ('./lib/resolvers')
 const cors = require('cors');
 
 const app = express()
-const PORT = process.env.port || 3001
+const PORT = process.env.port || 9000
 //const PORT = 3001 || 9000;
 const hostname = "0.0.0.0";
 
