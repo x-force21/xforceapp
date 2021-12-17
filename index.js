@@ -10,7 +10,9 @@ const resolvers = require ('./lib/resolvers')
 const cors = require('cors');
 
 const app = express()
-const port = process.env.port || 3001
+//const port = process.env.port || 3001
+const port = 3001 || 9000;
+const hostname = "127.0.0.1";
 
 const typeDefs = readFileSync (
     join (__dirname, 'lib', 'schema.graphql' ),
@@ -29,6 +31,6 @@ app.use ('/api', graphqlHTTP ({
     graphiql: true
 }))
 
-app.listen (port, () => {
-    console.log (`Server is listening at http://localhost:${port}/api`)
+app.listen (port, hostname, () => {
+    console.log (`Server is listening at http://${hostname}:${port}/api`)
 })
