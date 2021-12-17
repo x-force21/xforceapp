@@ -11,7 +11,7 @@ const cors = require('cors');
 
 const app = express()
 //const port = process.env.port || 3001
-const port = 3001 || 9000;
+const PORT = 3001 || 9000;
 const hostname = "127.0.0.1";
 
 const typeDefs = readFileSync (
@@ -31,6 +31,6 @@ app.use ('/api', graphqlHTTP ({
     graphiql: true
 }))
 
-app.listen (port, hostname, () => {
-    console.log (`Server is listening at http://${hostname}:${port}/api`)
+app.listen (PORT, hostname, () => {
+    console.log (`Server is listening at http://${hostname}:${PORT}/api`)
 })
