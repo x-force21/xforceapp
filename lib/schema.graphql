@@ -149,7 +149,7 @@ type Query {
     "Devuelve todos las inscripciones"
     getInscriptions: [Inscriptions]
     "Devuelve una inscripcion"
-    getInscription (id:ID!): Inscriptions
+    getInscription (codigoProyecto:String): [Inscriptions]
 }
 
 type Mutation {
