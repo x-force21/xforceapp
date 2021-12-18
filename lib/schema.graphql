@@ -22,9 +22,9 @@ type Project {
     fFinal: String
     estadoProyecto: String
     fase: String
-    advanceProject: [Advance] 
-    documentoLider: String
-    nombreLider: String
+    advanceProject: [Advance]
+    documentoLider: String!
+    nombreLider: String!
     }
 
 type Advance {
@@ -150,6 +150,7 @@ type Query {
     getInscriptions: [Inscriptions]
     "Devuelve todas las inscripciones"
     getInscription (codigoProyecto:String): [Inscriptions]
+    
 }
 
 type Mutation {
