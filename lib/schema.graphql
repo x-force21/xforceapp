@@ -22,9 +22,9 @@ type Project {
     fFinal: String
     estadoProyecto: String
     fase: String
-    advanceProject: [Advance] 
-    documentoLider: String
-    nombreLider: String
+    advanceProject: [Advance]
+    documentoLider: String!
+    nombreLider: String!
     }
 
 type Advance {

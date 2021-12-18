@@ -1,4 +1,3 @@
 # xforcegraph
-Mafes repository!!!!
-Only for testing porpuses. 
-If you have any questions, please let me know!!!
+Todo los cambios en nuestro graphQL estan aqui!
+=)
