@@ -148,7 +148,7 @@ type Query {
     getAdvanceUser (UserID: ID): Advance 
     "Devuelve todos las inscripciones"
     getInscriptions: [Inscriptions]
-    "Devuelve una inscripcion"
+    "Devuelve todas las inscripciones"
     getInscription (codigoProyecto:String): [Inscriptions]
 }
 
