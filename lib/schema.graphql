@@ -136,7 +136,7 @@ type Query {
     "Devuelve el proyecto indicado"
     getUnicProject(projectCode: String, projectName: String): Project
     "Devuelve un proyecto"
-    getProject (id:ID!): Project
+    getProject (id:ID!): [Project]
     "Devuelve listado de proyectos por documento del lider"
     getProjectsByFilter(leaderDocument:String ):[Project]
     "Devuelve los avances"
